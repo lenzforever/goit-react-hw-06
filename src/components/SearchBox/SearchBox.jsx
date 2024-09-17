@@ -1,9 +1,10 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateFilter } from '../../redux/filtersSlice';
 import styles from './SearchBox.module.css';
 
-const SearchBox = ({ filteredContactValue }) => {
+const SearchBox = () => {
   const dispatch = useDispatch();
+  const filterValue = useSelector((state) => state.filters.value);
 
   const handleChange = (event) => {
     const value = event.target.value;
@@ -18,7 +19,7 @@ const SearchBox = ({ filteredContactValue }) => {
         onChange={handleChange}
         type="text"
         placeholder="Search by name..."
-        value={filteredContactValue}
+        value={filterValue}
       />
     </div>
   );
