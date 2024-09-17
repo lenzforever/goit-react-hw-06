@@ -1,44 +1,59 @@
-.contactWrapper {
-  border: 1px solid #333;
-  border-radius: 8px;
-  padding: 18px;
-  position: relative;
-  min-width: 348px;
-  background-color: #1a1a1a;
-  text-align: center;
+.contactItem {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   background-color: #2c2c2c;
+   border-radius: 8px;
+   padding: 0.8em;
+   margin-bottom: 0.5em;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+   transition: background-color 250ms ease, box-shadow 250ms ease;
 }
 
-.wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  align-items: center;
+.contactItem:hover {
+   background-color: #3a3a3a;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.profile {
+   display: flex;
+   align-items: center;
+   gap: 1em;
 }
 
 .icon {
-  color: #646cff;
-  font-size: 1.5em;
+   color: #4caf50;
+   font-size: 1.5em;
 }
 
-.name,
-.number {
-  color: #ffffff;
+.name {
+   font-size: 1em;
+   color: #e0e0e0;
+   margin: 0;
 }
 
-.deleteBtn {
-  border: 1px solid #888;
-  background-color: #333;
-  color: #ffffff;
-  border-radius: 4px;
-  padding: 6px 12px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  position: absolute;
-  top: 18px;
-  right: 18px;
+.phone {
+   display: flex;
+   align-items: center;
+   color: #80e27e;
+   text-decoration: none;
 }
 
-.deleteBtn:hover {
-  background-color: #444;
-  color: #f9f9f9;
+.phone:hover {
+   color: #66bb6a;
+}
+
+.deleteButton {
+   background-color: #f44336;
+   color: #fff;
+   border: none;
+   border-radius: 6px;
+   padding: 0.5em 1em;
+   font-size: 0.9em;
+   cursor: pointer;
+   transition: background-color 250ms ease;
+}
+
+.deleteButton:hover {
+   background-color: #d32f2f;
 }

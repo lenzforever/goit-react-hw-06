@@ -1,26 +1,33 @@
-import { FaUser, FaPhoneAlt } from 'react-icons/fa';
-import css from './Contact.module.css';
+import { FaUserCircle } from 'react-icons/fa';
+import { AiFillPhone } from 'react-icons/ai';
+import { useDispatch } from 'react-redux';
+import { deleteContact } from '../../redux/contactsSlice';
 
-function Contact({ id, name, number, onDeleteContact }) {
+import styles from './Contact.module.css';
+
+const Contact = ({ contactId, name, phone }) => {
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(deleteContact(contactId));
+  };
+
   return (
-    <li className={css.contactWrapper}>
-      <div className={css.wrapper}>
-        <FaUser className={css.icon} />
-        <h3 className={css.name}>{name}</h3>
+    <div className={styles.contactItem}>
+      <div className={styles.profile}>
+        <FaUserCircle className={styles.icon} />
+        <p className={styles.name}>{name}</p>
+        <a href={`tel:${phone}`} className={styles.phone}>
+          <AiFillPhone className={styles.icon} />
+          {phone}
+        </a>
       </div>
-      <div className={css.wrapper}>
-        <FaPhoneAlt className={css.icon} />
-        <p className={css.number}>{number}</p>
-      </div>
-      <button
-        className={css.deleteBtn}
-        type="button"
-        onClick={() => onDeleteContact(id)}
-      >
-        Delete
+
+      <button onClick={handleDelete} className={styles.deleteButton}>
+        Remove
       </button>
-    </li>
+    </div>
   );
-}
+};
 
 export default Contact;
